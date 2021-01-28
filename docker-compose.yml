@@ -1,9 +1,6 @@
 version: '2.1'
 services:
 
-  #
-  # janus-gateway
-  #
   janus-gateway:
     image: 'canyan/janus-gateway:latest'
     command: ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus"]
@@ -14,8 +11,10 @@ services:
       # - "8889:8889"
       - "8000:8000"
       - "7088:7088"
-      - "7089:7089"
-    # volumes:
-      # - "./etc/janus/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
+      # - "7089:7089"
+    volumes:
+      - "./conf/janus/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
+      - "./conf/janus/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg"
       # - "./etc/janus/janus.eventhandler.sampleevh.jcfg:/usr/local/etc/janus/janus.eventhandler.sampleevh.jcfg"
-    restart: always
+    # restart: always
+    
