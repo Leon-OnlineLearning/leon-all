@@ -2,3 +2,7 @@
 	path = leon-ClientSide
 	url = git@github.com:Leon-OnlineLearning/leon-ClientSide.git
 	branch = dev
+[submodule "Leon-Serverside"]
+	path = Leon-Serverside
+	url = git@github.com:Leon-OnlineLearning/Leon-Serverside.git
+	branch = dev
