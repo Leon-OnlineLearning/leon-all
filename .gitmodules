@@ -6,3 +6,7 @@
 	path = Leon-Serverside
 	url = git@github.com:Leon-OnlineLearning/Leon-Serverside.git
 	branch = dev
+[submodule "janus-gateway-docker"]
+	path = janus-gateway-docker
+	url = git@github.com:abdo1819/janus-gateway-docker.git
+	branch = dev
