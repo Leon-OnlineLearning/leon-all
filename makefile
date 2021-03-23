@@ -5,5 +5,5 @@ all: start_container update_ip
 	
 start_container:;docker-compose up -d
 stop_container:;docker-compose down
-update_ip: .env
-	sed s/nat_1_1_mapping.*/nat_1_1_mapping=\"$(public_ip)\"/g janus/janus.jcfg
+update_ip: 
+	sed -i s/nat_1_1_mapping.*/nat_1_1_mapping=\"$(public_ip)\"/g janus/janus.jcfg
