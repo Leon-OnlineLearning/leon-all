@@ -31,3 +31,29 @@ services:
     ports:
       - 80:80
       - 443:443
+
+
+  redisdb:
+    extends: 
+      file: Leon-Serverside/docker-compose.yml
+      service: redisdb
+
+  mysqldb:
+    extends: 
+      file: Leon-Serverside/docker-compose.yml
+      service: mysqldb
+
+  backend:
+    extends: 
+      file: Leon-Serverside/docker-compose.yml
+      service: server
+    ports: 
+      - 3333
+    depends_on: 
+      - redisdb
+      - mysqldb
+
+
+volumes: 
+  mysqldb:
+ 
