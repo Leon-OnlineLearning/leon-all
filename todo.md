@@ -6,6 +6,9 @@
             if one of the image is not perfect it will vanach when we take mean
         - save vector for every image and compare
  
+- [ ] make sure face in region during record
+
+
 
 - get more refrences from lectures
 
@@ -38,7 +41,8 @@ decode the video frames
 
 
 
-
+-- for exam 
+- [ ] use faceapi to make sure someone in front of camera
 
 
 -- for lecture
