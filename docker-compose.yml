@@ -1,21 +1,20 @@
-version: '3'
+version: "3"
 services:
-
   janus-gateway:
-    image: 'canyan/janus-gateway:latest'
+    image: "canyan/janus-gateway:latest"
     command: ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus"]
     ports:
       - 8088
       - 7088
-      
+
     volumes:
       - "./janus/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
       - "./janus/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg"
       # - "./etc/janus/janus.eventhandler.sampleevh.jcfg:/usr/local/etc/janus/janus.eventhandler.sampleevh.jcfg"
     # restart: always
   ui:
-    build: 'leon-ClientSide/'
-    ports: 
+    build: "leon-ClientSide/"
+    ports:
       - 3000
     volumes:
       - ./leon-ClientSide:/code
@@ -32,28 +31,26 @@ services:
       - 80:80
       - 443:443
 
-
   redisdb:
-    extends: 
+    extends:
       file: Leon-Serverside/docker-compose.yml
       service: redisdb
 
-  mysqldb:
-    extends: 
+  postgresdb:
+    extends:
       file: Leon-Serverside/docker-compose.yml
-      service: mysqldb
+      service: postgresdb
 
   backend:
-    extends: 
+    extends:
       file: Leon-Serverside/docker-compose.yml
       service: server
-    ports: 
+    ports:
       - 3333
-    depends_on: 
+    depends_on:
       - redisdb
-      - mysqldb
+      - postgresdb
 
-
-volumes: 
-  mysqldb:
- 
+volumes:
+  postgresdb:
+  redisdb:
