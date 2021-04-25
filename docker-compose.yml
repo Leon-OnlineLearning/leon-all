@@ -7,9 +7,9 @@ services:
       - 8088
       - 7088
 
-    volumes:
-      - "./janus/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
-      - "./janus/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg"
+    # volumes:
+      # - "./janus/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
+      # - "./janus/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg"
       # - "./etc/janus/janus.eventhandler.sampleevh.jcfg:/usr/local/etc/janus/janus.eventhandler.sampleevh.jcfg"
     # restart: always
   ui:
@@ -53,4 +53,3 @@ services:
 
 volumes:
   postgresdb:
-  redisdb:
