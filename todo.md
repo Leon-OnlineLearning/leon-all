@@ -5,16 +5,33 @@
         - calculate mean _
             if one of the image is not perfect it will vanach when we take mean
         - save vector for every image and compare
- 
+- [x] save embeding in database
 - [ ] make sure face in region during record
 
-
+- [ ] create admin ui to check recorded video
 
 - get more refrences from lectures
 
 ## during exam
 - get multible vectors and compare with refrance
     * one image every minute
+- [x] send recorded video from client to server
+- [x] send from server to ML
+- [x] save result came back from ML
+- [ ] view result after exam
+
+
+
+
+# fix 
+- [ ] conversion is slow
+- [ ] two conversion done
+/**
+student id 
+exam id 
+start time
+end time 
+*/
 
 - make sure face in the frame of camera
 
