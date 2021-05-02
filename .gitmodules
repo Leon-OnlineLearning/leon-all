@@ -10,3 +10,7 @@
 	path = janus-gateway-docker
 	url = git@github.com:abdo1819/janus-gateway-docker.git
 	branch = dev
+[submodule "doc/online_learning_doc"]
+	path = doc/online_learning_doc
+	url = git@github.com:abdo1819/online_learning_doc.git
+	branch = main
