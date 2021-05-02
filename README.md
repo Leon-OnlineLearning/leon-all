@@ -10,3 +10,5 @@ run janus locally with https
 # Design
 ## During exam sequence
 ![during exam sequenec](design/DuringExamSequence.png)
+## Object detection sequence
+![Object detection sequence](design/ObjectDetection.png)
