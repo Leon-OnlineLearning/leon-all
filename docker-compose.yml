@@ -51,5 +51,12 @@ services:
       - redisdb
       - postgresdb
 
+
+  auth-service:
+    build: "face_verification/"
+    command: ["python", "./exam/reciving_video.py"]
+    volumes: 
+        - ./face_verification:/code
+
 volumes:
   postgresdb:
