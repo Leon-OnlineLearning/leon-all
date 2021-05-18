@@ -14,3 +14,7 @@
 	path = doc/online_learning_doc
 	url = git@github.com:abdo1819/online_learning_doc.git
 	branch = main
+[submodule "face_verification"]
+	path = face_verification
+	url = git@github.com:Leon-OnlineLearning/face_verification.git
+	branch = main
