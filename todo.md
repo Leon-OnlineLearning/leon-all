@@ -24,14 +24,8 @@
 
 
 # fix 
-- [ ] conversion is slow
-- [ ] two conversion done
-/**
-student id 
-exam id 
-start time
-end time 
-*/
+- [x] conversion is slow
+- [x] two conversion done
 
 - make sure face in the frame of camera
 
@@ -74,3 +68,20 @@ decode the video frames
 -- in exam
 - [ ] optain rtp packet or media in any format from Media stream
 - [ ] send vedio over data channel
+
+
+# integrate
+- [x] sepration
+- [x] speach to text
+- [x] topic recognition
+- [ ] continues training
+
+
+# current abdo
+- [x] populate data for exam
+- [x] use exam from db
+- [x] exam creation ui
+- [ ] report page after exam
+
+
+- [ ] upload solution
