@@ -12,3 +12,6 @@ run janus locally with https
 ![during exam sequenec](design/DuringExamSequence.png)
 ## Object detection sequence
 ![Object detection sequence](design/ObjectDetection.png)
+
+# audio
+[audio_work](audio_work.md)
