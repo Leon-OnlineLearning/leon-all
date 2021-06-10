@@ -12,7 +12,7 @@
 	branch = dev
 [submodule "doc/online_learning_doc"]
 	path = doc/online_learning_doc
-	url = git@github.com:abdo1819/online_learning_doc.git
+	url = git@github.com:Leon-OnlineLearning/online_learning_doc.git
 	branch = main
 [submodule "face_verification"]
 	path = face_verification
