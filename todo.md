@@ -24,40 +24,6 @@
 
 
 # fix 
-- [ ] conversion is slow
-- [ ] two conversion done
-/**
-student id 
-exam id 
-start time
-end time 
-*/
-
-- make sure face in the frame of camera
-
-
-
--- end point
-vedio --> array of emedding
-vedio , array of embedding  --> match / not match
-
-
-
-
-# rtp 
-* suitable for lecture 
-# sctp
-* complicated 
-* require other server to handle saving 
-# record and play send using tcp
-save seconds of vedio and transmmit it
-create blob 
-decode the video frames
-
-
-
-
-
 -- for exam 
 - [ ] use faceapi to make sure someone in front of camera
 
@@ -68,9 +34,28 @@ decode the video frames
     may be it is not , but for know there is a parent that create a session and 
     will pass it to multible childs
 - [x] make audio component 
-- [ ] make data component
-- [ ] make the data component work with generic data
+- [x] make data component
+- [x] make the data component work with generic data
+- [ ] use data component with pdf viewer
+- [ ] only send data when channel is open
 
 -- in exam
 - [ ] optain rtp packet or media in any format from Media stream
 - [ ] send vedio over data channel
+
+
+# integrate
+- [x] sepration
+- [x] speach to text
+- [x] topic recognition
+- [ ] continues training
+
+
+# current abdo
+- [x] populate data for exam
+- [x] use exam from db
+- [x] exam creation ui
+- [x] report page after exam
+
+
+- [ ] upload solution

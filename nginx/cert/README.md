@@ -4,7 +4,7 @@ steps to regenerate
 `sudo apt install certbot`
 
 - then genrate the certificates with 
-```
+```bash
 certbot certonly --standalone
 ```
 
