@@ -61,6 +61,11 @@ services:
     depends_on:
       - backend
       - ui
+  text-classification:
+    build: "Text_Classifier/"
+    command: ["bash", "./start.sh"]
+    volumes:
+        - ./Text_Classifier:/code
 
 volumes:
   postgresdb:
