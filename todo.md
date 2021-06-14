@@ -36,8 +36,10 @@
 - [x] make audio component 
 - [x] make data component
 - [x] make the data component work with generic data
-- [ ] use data component with pdf viewer
+- [x] use data component with pdf viewer
 - [ ] only send data when channel is open
+- [ ] create room associated with lecture
+- [ ] destroy the room when lecture ends
 
 -- in exam
 - [ ] optain rtp packet or media in any format from Media stream
