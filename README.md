@@ -17,3 +17,15 @@ run janus locally with https
 
 # audio
 [audio_work](audio_work.md)
+
+
+# comon problems
+## docker with windows
+some type hyper-v take needed ports and prevent docker from starting
+to prevent this from happening again
+
+symtomps
+```log
+docker: error response from daemon: Ports are not available: listen tcp 0.0.0.0/xxxx: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+```
+![solution](fix_docker_ports.md)
