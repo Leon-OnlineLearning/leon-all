@@ -18,7 +18,7 @@
 - [x] send recorded video from client to server
 - [x] send from server to ML
 - [x] save result came back from ML
-- [ ] view result after exam
+- [x] view result after exam
 
 
 
@@ -38,7 +38,11 @@
 - [x] make the data component work with generic data
 - [x] use data component with pdf viewer
 - [ ] only send data when channel is open
-- [ ] create room associated with lecture
+- [x] create room associated with lecture
+    - [ ] keep the calender working
+    - [ ] make get all events for professor
+    - [x] create room when professor access its page
+    - [ ] add wait messsage for students if room isn't created yet
 - [ ] destroy the room when lecture ends
 
 -- in exam
