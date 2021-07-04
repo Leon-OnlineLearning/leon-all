@@ -1,3 +1,7 @@
 *.pem
 nginx/logs
 .env
+workspace.code-workspace
+.devcontainer/devcontainer.json
+.devcontainer/docker-compose.yml
+.vscode/settings.json
