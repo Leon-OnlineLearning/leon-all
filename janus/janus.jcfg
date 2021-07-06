@@ -11,9 +11,9 @@ general: {
 	loggers_folder = "/usr/local/lib/janus/loggers"			# External loggers folder
 
 		# The next settings configure logging
-	#log_to_stdout = false					# Whether the Janus output should be written
+	log_to_stdout = false					# Whether the Janus output should be written
 											# to stdout or not (default=true)
-	#log_to_file = "/path/to/janus.log"		# Whether to use a log file or not
+	log_to_file = "/usr/local/lib/janus/loggers/janus.log"		# Whether to use a log file or not
 	debug_level = 4							# Debug/logging level, valid values are 0-7
 	#debug_timestamps = true				# Whether to show a timestamp for each log line
 	#debug_colors = false					# Whether colors should be disabled in the log
@@ -247,8 +247,8 @@ media: {
 nat: {
 	stun_server = "stun.voip.eutelia.it"
 	# stun_port = 3478
-	nice_debug = true
-	#full_trickle = true
+	# nice_debug = true
+	full_trickle = true
 	#ice_lite = true
 	#ice_tcp = true
 
@@ -275,7 +275,7 @@ nat: {
 	# Multiple public IP addresses can be specified as a comma separated list
 	# if the Janus is deployed in a DMZ between two 1-1 NAT for internal and
 	# external users.
-	nat_1_1_mapping = "156.209.166.123"
+	# nat_1_1_mapping = "156.209.166.123"
 	#keep_private_host = true
 
 	# You can configure a TURN server in two different ways: specifying a
