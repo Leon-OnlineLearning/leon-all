@@ -1,9 +1,19 @@
+FROM golang:alpine AS builder
+
+WORKDIR /code
+COPY ./go_server .
+
+RUN CGO_ENABLED=0 go build main.go
+
+
 FROM canyan/janus-gateway:latest
 
-RUN apt-get -y update
-RUN apt-get install -y nginx
+WORKDIR /code
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /code/main /code/main
+COPY start.sh start.sh
 
-EXPOSE 41234
-CMD [ "nginx" ]
+EXPOSE 6111
+CMD ["./start.sh"]
+
+

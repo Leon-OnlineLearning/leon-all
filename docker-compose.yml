@@ -4,15 +4,14 @@ services:
     # image: "canyan/janus-gateway:latest"
     build: "janus/"
 
-    command: ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus",";","nginx"]
+    command: ["bash","start.sh"]
     ports:
       - 8088
       - 7088
-      - 41234
+      - 6111:6111
 
     volumes:
       - "./janus/www/recording:/www/recording"
-      - "./janus/nginx.conf:/etc/nginx/nginx.conf"
       - "./janus/loggers:/usr/local/lib/janus/loggers"
       - "./janus/configuration:/usr/local/etc/janus"
 
