@@ -5,3 +5,4 @@ workspace.code-workspace
 .devcontainer/devcontainer.json
 .devcontainer/docker-compose.yml
 .vscode/settings.json
+janus/loggers/janus.log
