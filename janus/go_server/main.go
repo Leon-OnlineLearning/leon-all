@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -24,19 +23,15 @@ func deleteRecording(w http.ResponseWriter, r *http.Request) {
 
 		file_to_delete := fmt.Sprintf("%s.wav", lectureId)
 
-		files, err := ioutil.ReadDir(recordings_folder)
-		if err != nil {
-			log.Fatal(err)
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-
-		err = findFileAndDelete(files, file_to_delete)
+		err := os.Remove(recordings_folder+file_to_delete)
 		if err != nil {
 			log.Fatal(err)
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
+		log.Printf(" (%s) file deleted:", file_to_delete)
+		
+		
 		fmt.Fprintf(w, "sucess")
 		return
 	} else {
@@ -57,12 +52,3 @@ func main() {
 	http.ListenAndServe(":6111", nil)
 }
 
-func findFileAndDelete(files []os.FileInfo, target_name string) error{
-	for _, f := range files {
-		if f.Name() == target_name{
-			fmt.Println(f.Name())
-			return nil
-		}	
-	}
-	return fmt.Errorf("file (%s) not found ",target_name)
-}
