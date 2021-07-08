@@ -37,7 +37,7 @@ func IsValidFile(uuid string) bool {
 			}
             err := os.Remove(file2Del)
 			if err != nil {
-				log.Fatal(err)
+				log.Print(err)
 				w.WriteHeader(http.StatusNotFound)
 				return
 			}
