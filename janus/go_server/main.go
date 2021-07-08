@@ -6,9 +6,12 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
+	"regexp"
 )
 
 const recordings_folder = "/www/recording"
+const file_extension = ".wav"
 
 func statusCheck(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "OK")
@@ -21,6 +24,9 @@ func IsValidFile(uuid string) bool {
     return r.MatchString(uuid)
 }
 
+// check if query is UUID and delete or return based in method
+// next is expected to be fileServer
+func deleteChecker (directory string, next http.Handler) http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		UUID := r.URL.String()
 		
@@ -35,6 +41,8 @@ func IsValidFile(uuid string) bool {
 			if !IsValidFile(UUID){
 				fmt.Fprint(w,"delete query must be UUID")
 			}
+			file2Del := path.Join(directory,UUID+file_extension)
+
             err := os.Remove(file2Del)
 			if err != nil {
 				log.Print(err)
