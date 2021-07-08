@@ -1,3 +1,4 @@
+//inspired by https://gist.github.com/toravir/aeb9c2923cd180a71bd15203d1aea4f2
 package main
 
 import (
@@ -5,50 +6,40 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	"github.com/gorilla/mux"
 )
 
 const recordings_folder = "/www/recording"
-	
 
-
-func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World")
+func statusCheck(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "OK")
 }
 
-func deleteRecording(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "delete" {
-		lectureId := mux.Vars(r)["lectureId"]
-
-		file_to_delete := fmt.Sprintf("%s.wav", lectureId)
-
-		err := os.Remove(recordings_folder+file_to_delete)
-		if err != nil {
-			log.Fatal(err)
-			w.WriteHeader(http.StatusNotFound)
-			return
-		}
-		log.Printf(" (%s) file deleted:", file_to_delete)
-		
-		
-		fmt.Fprintf(w, "sucess")
-		return
-	} else {
-		w.WriteHeader(http.StatusMethodNotAllowed)
-	}
+func deleteChecker (dirprefix string, next http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        if r.Method == "DELETE" {
+            file2Del := dirprefix+r.URL.String()
+            err := os.Remove(file2Del)
+			if err != nil {
+				log.Fatal(err)
+				w.WriteHeader(http.StatusNotFound)
+				return
+			}
+			fmt.Printf("file (%s) deleted:", file2Del)
+			fmt.Fprintf(w, "sucess")
+            return
+        }
+        next.ServeHTTP(w, r)
+    })
 }
+
 func main() {
-	// endpoint to get the files
-	fs := http.FileServer(http.Dir(recordings_folder))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	mux := http.NewServeMux()
+	mux.HandleFunc("/status", statusCheck)
 	
-	// endpoint to delete the lecture
-	r := mux.NewRouter()
-	r.HandleFunc("/lecture/{lectureId}", deleteRecording)
-	r.HandleFunc("/hi", helloWorld)
-    http.Handle("/", r)
-
-	http.ListenAndServe(":6111", nil)
+	// staticly serving file with support to delete
+	fs := http.FileServer(http.Dir(recordings_folder))
+	mux.Handle("/",deleteChecker(recordings_folder, fs))
+	
+	http.ListenAndServe(":6111", mux)
 }
 
