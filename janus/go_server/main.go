@@ -14,10 +14,27 @@ func statusCheck(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "OK")
 }
 
-func deleteChecker (dirprefix string, next http.Handler) http.Handler {
+// accept UUID and UUID.wav
+func IsValidFile(uuid string) bool {
+	// TODO support diffrent extentions
+    r := regexp.MustCompile(`^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4[a-fA-F0-9]{3}-[8|9|aA|bB][a-fA-F0-9]{3}-[a-fA-F0-9]{12}(\.wav)?$`)
+    return r.MatchString(uuid)
+}
+
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        if r.Method == "DELETE" {
-            file2Del := dirprefix+r.URL.String()
+		UUID := r.URL.String()
+		
+		isValidRequest := IsValidFile(UUID) || len(UUID) == 0
+		if !isValidRequest {
+			w.WriteHeader(http.StatusForbidden)
+			
+			return 
+		}
+        
+		if r.Method == "DELETE" || r.Method == "delete" {
+			if !IsValidFile(UUID){
+				fmt.Fprint(w,"delete query must be UUID")
+			}
             err := os.Remove(file2Del)
 			if err != nil {
 				log.Fatal(err)
