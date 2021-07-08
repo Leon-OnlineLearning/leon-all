@@ -62,8 +62,14 @@ func main() {
 	mux.HandleFunc("/status", statusCheck)
 	
 	// staticly serving file with support to delete
+	// for deleting  /letcure/{uuid}
+	// note file extention is emitted in deletion
+	// to get lecture /lecture/{UUID}.wav
+	// to list all records /lecture/
+
 	fs := http.FileServer(http.Dir(recordings_folder))
-	mux.Handle("/",deleteChecker(recordings_folder, fs))
+	mux.Handle("/lecture/",http.StripPrefix("/lecture/",
+						deleteChecker(recordings_folder, fs)))
 	
 	http.ListenAndServe(":6111", mux)
 }
