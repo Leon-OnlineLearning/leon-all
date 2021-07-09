@@ -48,6 +48,8 @@ services:
       - redisdb
       - postgresdb
 
+    restart: always
+
 
   auth-service:
     build: "face_verification/"
