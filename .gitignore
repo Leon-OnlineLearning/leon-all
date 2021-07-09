@@ -6,3 +6,5 @@ workspace.code-workspace
 .devcontainer/docker-compose.yml
 .vscode/settings.json
 janus/loggers/janus.log
+debug.html
+janus/www/recording/
