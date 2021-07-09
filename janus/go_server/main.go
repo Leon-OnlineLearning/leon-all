@@ -2,7 +2,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -50,27 +52,52 @@ func deleteChecker (directory string, next http.Handler) http.Handler {
 				return
 			}
 			fmt.Printf("file (%s) deleted:", file2Del)
-			fmt.Fprintf(w, "sucess")
+			fmt.Fprintf(w, "success")
             return
         }
         next.ServeHTTP(w, r)
     })
 }
 
+func listAll(w http.ResponseWriter, r *http.Request) {
+	
+	files, err := ioutil.ReadDir(recordings_folder)
+	if err != nil {
+		log.Fatal(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	
+	var available_lectures []string
+	for _,file := range files {
+		if IsValidFile(file.Name()){
+			uuid := file.Name()[:len(file.Name())-(len(file_extension))]
+			available_lectures = append(available_lectures, uuid)
+		}
+		
+	}
+	json,_ := json.Marshal(available_lectures) 
+	w.Write(json)
+
+}
+
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/status", statusCheck)
 	
-	// staticly serving file with support to delete
+	// statically serving file with support to delete
 	// for deleting  /letcure/{uuid}
 	// note file extention is emitted in deletion
 	// to get lecture /lecture/{UUID}.wav
-	// to list all records /lecture/
+	// to list all records /lecture/all
 
 	fs := http.FileServer(http.Dir(recordings_folder))
+	mux.HandleFunc("/lecture/all", listAll)	
 	mux.Handle("/lecture/",http.StripPrefix("/lecture/",
 						deleteChecker(recordings_folder, fs)))
-	
 	http.ListenAndServe(":6111", mux)
 }
 
