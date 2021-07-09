@@ -8,16 +8,16 @@ services:
     ports:
       - 8088
       - 7088
-      - 6111:6111
+      - 6111
 
     volumes:
       - "./janus/www/recording:/www/recording"
       - "./janus/loggers:/usr/local/lib/janus/loggers"
       - "./janus/configuration:/usr/local/etc/janus"
 
+      # restart: always
       
-      # - "./etc/janus/janus.eventhandler.sampleevh.jcfg:/usr/local/etc/janus/janus.eventhandler.sampleevh.jcfg"
-    # restart: always
+
   ui:
     build: "leon-ClientSide/"
     ports:
