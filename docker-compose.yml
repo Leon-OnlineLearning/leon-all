@@ -48,7 +48,6 @@ services:
       - redisdb
       - postgresdb
 
-    restart: always
 
 
   auth-service:
