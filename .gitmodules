@@ -21,3 +21,7 @@
 [submodule "Text_Classifier"]
 	path = Text_Classifier
 	url = git@github.com:Leon-OnlineLearning/Text_Classifier.git
+[submodule "forbidden_objects_detection"]
+	path = forbidden_objects_detection
+	url = git@github.com:Leon-OnlineLearning/forbidden_objects_detection.git
+	branch = main
