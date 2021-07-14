@@ -55,6 +55,14 @@ services:
     command: ["python", "./exam/reciving_video.py"]
     volumes: 
         - ./face_verification:/code
+
+
+  forbidden-object:
+    build: "forbidden_objects_detection/"
+    command: ["python", "./end_point.py"]
+    volumes: 
+        - ./forbidden_objects_detection:/code
+  
   proxy:
     image: nginx:latest
     volumes:
