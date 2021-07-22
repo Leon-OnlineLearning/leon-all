@@ -25,3 +25,6 @@
 	path = forbidden_objects_detection
 	url = git@github.com:Leon-OnlineLearning/forbidden_objects_detection.git
 	branch = main
+[submodule "doc/BOOK"]
+	path = doc/BOOK
+	url = https://github.com/Leon-OnlineLearning/BOOK
