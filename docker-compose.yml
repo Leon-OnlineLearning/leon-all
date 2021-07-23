@@ -57,6 +57,14 @@ services:
         - ./face_verification:/code
 
 
+  gesture-service:
+    build: "gesture_recognition/"
+    command: ["python","-m", "exam.end_point"]
+    volumes: 
+        - ./gesture_recognition:/code
+
+
+
   forbidden-object:
     build: "forbidden_objects_detection/"
     command: ["python", "./end_point.py"]
