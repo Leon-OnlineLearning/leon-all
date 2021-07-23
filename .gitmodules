@@ -27,4 +27,9 @@
 	branch = main
 [submodule "doc/BOOK"]
 	path = doc/BOOK
-	url = https://github.com/Leon-OnlineLearning/BOOK
+	url = git@github.com:Leon-OnlineLearning/BOOK.git
+	branch = main
+[submodule "gesture_recognition"]
+	path = gesture_recognition
+	url = git@github.com:Leon-OnlineLearning/gesture_recognition.git
+	branch = main
