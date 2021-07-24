@@ -1,3 +1,13 @@
+# high priority
+- [ ] use mobile as secodary camera
+- [ ] add start lecture at student
+- [ ] fix memory error in forbidden object
+- [ ] better look for lecture page
+- [ ]fix no embedding
+- [ ] add before exam prep page
+
+
+
 # fix 
 -- for exam 
 ## creating exam
@@ -50,3 +60,5 @@
 - [x] send from server to ML
 - [x] save result came back from ML
 - [x] view result after exam
+
+
