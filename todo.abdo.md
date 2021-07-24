@@ -1,7 +1,12 @@
 # fix 
 -- for exam 
+## creating exam
+- [x] send created exam to db
+## during exam
+- [ ] prevent changing tab during exam
 - [ ] make sure face in region during record
 - [ ] use face-api to make sure someone in front of camera
+- [x] make question come one by one
 - [ ] create admin ui to check recorded video
 
 
@@ -25,12 +30,17 @@
 
 
 
-# current abdo
-- [ ] upload solution
+# current 
+- [ ] prevent changing tab during exam
+- [ ] support secondary camera by phone
+- [ ] make sure face in region during record
 
 
 
-# done abdo
+
+# done 
+- [X] upload solution
+
 - [x] populate data for exam
 - [x] use exam from db
 - [x] exam creation ui
