@@ -1,4 +1,12 @@
-run janus locally with https
+# book
+
+the printed version of the book , contain documentation for other serveces [download_pdf](https://github.com/Leon-OnlineLearning/BOOK/releases/download/1.0.0/entry.pdf)
+the latex verstion can be found in this [repo](https://github.com/Leon-OnlineLearning/BOOK)
+
+
+
+
+
 
 # instructions
 - create a certificate [nginx/cert/README.md](https://github.com/Leon-OnlineLearning/leon-all/blob/main/nginx/cert/README.md)
