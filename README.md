@@ -1,11 +1,10 @@
-# book
+# E-learning and online Examination platform
+a platform for online learning focused in examination and lecture
 
+
+# book
 the printed version of the book , contain documentation for other serveces [download_pdf](https://github.com/Leon-OnlineLearning/BOOK/releases/download/1.0.0/entry.pdf)
 the latex verstion can be found in this [repo](https://github.com/Leon-OnlineLearning/BOOK)
-
-
-
-
 
 
 # instructions
