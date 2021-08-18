@@ -246,7 +246,7 @@ media: {
 # internal libnice debugging, if needed.
 nat: {
 	stun_server = "stun.voip.eutelia.it"
-	# stun_port = 3478
+	stun_port = 3478
 	# nice_debug = true
 	full_trickle = true
 	#ice_lite = true
@@ -341,7 +341,7 @@ nat: {
 	# your machine is ready. Note that Linux distributions offer such directives.
 	# You could use the following directive in systemd: 'After=network-online.target'
 	# https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Before=
-	#ignore_unreachable_ice_server = true
+	ignore_unreachable_ice_server = true
 }
 
 # You can choose which of the available plugins should be
