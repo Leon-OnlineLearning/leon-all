@@ -12,6 +12,9 @@ a platform for online learning focused in examination and lecture
 - make sure volumes in compose exist for folders and files
 - download [models](face_verification/model.txt) and move them to `face_verfication/exam`
 
+### Testing 
+Check the testing instruction in each repo
+
 ## book
 the printed version of the book , contain documentation for other serveces [download_pdf](https://github.com/Leon-OnlineLearning/BOOK/releases/download/1.0.0/entry.pdf)
 the latex verstion can be found in this [repo](https://github.com/Leon-OnlineLearning/BOOK)
